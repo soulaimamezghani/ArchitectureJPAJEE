@@ -3,7 +3,6 @@ package com.infotel.metier;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -19,7 +18,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="TYPE_PERS")
+@DiscriminatorColumn(name="DTYPE")
 @DiscriminatorValue("PERS")
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 //
@@ -35,7 +34,7 @@ public class Personne {
 	private Adresse adresse;
 	@OneToOne (cascade= {CascadeType.PERSIST})
 	private Connexion connexion;
-	@ManyToMany (mappedBy = "personnes")//,fetch=FetchType.LAZY//si je mets rien c'est du lazy
+	@ManyToMany(mappedBy = "personnes")//,fetch=FetchType.LAZY//si je mets rien c'est du lazy
 	private List<Club> clubs = new ArrayList<Club>();
 	public int getId() {
 		return id;

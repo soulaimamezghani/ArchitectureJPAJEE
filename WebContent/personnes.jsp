@@ -21,34 +21,34 @@
 		<form action="ServletPersonne">
 			<div class="form-group">
 				<div>
-					<input type="hidden" name="id" value="${id }" /> 
+					<input type="hidden" name="id" value="${id}" /> 
 					
 					<label for="prenom">Prenom</label> <input id="prenom"
 						class="form-control" placeholder="Mon Prenom" type="text"
-						name="firstname" value="${firstname }" required />
+						name="firstname" value="${firstname}" required />
 				</div>
 
 
 				<div class="form-group">
 					<label for="nom">nom</label> <input id="nom" class="form-control"
 						type="text" placeholder="Mon nom" name="lastname"
-						value="${lastname }" required />
+						value="${lastname}" required />
 				</div>
 
 				<div class="form-group">
 					<label for="age">age</label> <input id="age" class="form-control"
-						type="text" placeholder="Mon age" name="age" value="${age }" />
-				<%-- </div>
+						type="text" placeholder="Mon age" name="age" value="${age}" />
+				 </div>
 				
-				<div class="form-group">
+				<%-- <div class="form-group">
 					<label for="login">login</label> <input id="login" class="form-control"
-						type="text" placeholder="Mon login" name="login" value="${login }" />
+						type="text" placeholder="Mon login" name="login" value="${login}" />
 				</div>
 				
 				<div class="form-group">
 					<label for="mdp">pass</label> <input id="mdp" class="form-control"
 						type="password" placeholder="Mon pass" name="mdp" value="${mdp}" />
-				</div> --%>
+				</div>  --%>
 				<div>
 
 					<input type="submit" name="ajouter" value="Ajouter" /> 
@@ -56,7 +56,7 @@
 						type="submit" name="modifier" value="Modifier" />
 				</div>
 				<div>
-					Adresse: <select name="adr">
+				  Adresse: <select name="adr">
 						<optgroup>
 							<option value="0">--</option>
 							<c:if test="${!empty adresses}">
@@ -67,7 +67,7 @@
 								</c:forEach>
 							</c:if>
 						</optgroup>
-					</select>
+					</select>  
 					<!-- Adresse :<select name=idAdr>
 								<optgroup>
 									<option>--</option>

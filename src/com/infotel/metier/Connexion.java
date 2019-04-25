@@ -14,8 +14,7 @@ public class Connexion {
 	private String login;
 	private String mdp;
 
-@OneToOne
-
+@OneToOne (mappedBy="connexion")
  private  Personne personne;
 
 

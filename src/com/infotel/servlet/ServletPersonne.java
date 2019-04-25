@@ -38,23 +38,23 @@ public class ServletPersonne extends HttpServlet {
 		int age;
 		int id;
 		int adrs;
-//		String login;
-//		String mdp;//je nomme comme kje ve meme adr a condition je change apres 
+      	String login;
+		String mdp;//je nomme comme kje ve meme adr a condition je change apres 
 		//Faire traitement
 		if (request.getParameter("lastname") != null) { // lastname se trouve dans jsp
 			age = Integer.parseInt(request.getParameter("age"));
 			nom = request.getParameter("lastname");
 			prenom = request.getParameter("firstname");
-			adrs=Integer.parseInt(request.getParameter("adr"));//on definit adres au lieu d'adresse
-//		      login = request.getParameter("login");
-//			  mdp = request.getParameter("mdp");
+   	    	adrs=Integer.parseInt(request.getParameter("adr"));//on definit adres au lieu d'adresse
+		      login = request.getParameter("login");
+			  mdp = request.getParameter("mdp");
 			
 			// 2-envoyer à la couche service
 			Personne p = new Personne();// je saisis les objets personne vide
 			p.setAge(age); // serveur note sur un papier
 			p.setNom(nom);
 			p.setPrenom(prenom);
-//			
+	
 //			Connexion c =new Connexion();
 //			c.setLogin(login);
 //			c.setMdp(mdp);
@@ -63,8 +63,8 @@ public class ServletPersonne extends HttpServlet {
 		
 			if(adrs!=0) {
 				p.setAdresse(service.getAdresse(adrs));
-			
-			
+//			
+				service.ajouterPersonne(p);
 			if (request.getParameter("ajouter") != null) {
 				service.ajouterPersonne(p);
 			}
@@ -79,8 +79,8 @@ public class ServletPersonne extends HttpServlet {
 		}
 
 		// 3-préparation à l'envoi
- 		request.setAttribute("personnes", service.findAllPersonnes());
-        request.setAttribute("adresses", service.findAllAdresses());
+ 		 request.setAttribute("personnes", service.findAllPersonnes());
+         request.setAttribute("adresses", service.findAllAdresses());
 		// 4-appel de la jsp
 		request.getRequestDispatcher("personnes.jsp").forward(request, response);
 	}
